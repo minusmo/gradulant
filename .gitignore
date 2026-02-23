@@ -1,0 +1,38 @@
+# 가상환경
+.venv/
+venv/
+env/
+
+# Python 빌드 산출물
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# 모델 캐시 (faster-whisper / huggingface)
+.cache/
+models/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 에디터
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 테스트 오디오 파일
+*.m4a
+*.wav
+*.mp3
+*.flac
+*.aac
+*.ogg
+
+# 출력 텍스트 (선택적으로 제외)
+# *.txt
