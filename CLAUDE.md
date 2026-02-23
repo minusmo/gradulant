@@ -28,8 +28,8 @@ Built a macOS Korean speech-to-text CLI tool using faster-whisper + Whisper larg
 **Install & run:**
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -e .
+uv sync
+# or: python -m venv .venv && source .venv/bin/activate && pip install -e .
 ko-stt meeting.m4a
 ```
 
@@ -61,6 +61,7 @@ Added a tkinter-based GUI that lets the user hold a button to record and auto-tr
 **Run the GUI:**
 
 ```bash
-pip install -e .
+uv sync
+# or: pip install -e .
 ko-stt-gui
 ```

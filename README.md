@@ -20,11 +20,12 @@ brew install ffmpeg
 ## 설치
 
 ```bash
-# 저장소 클론 후 가상환경 생성
+# uv 사용 (권장)
+uv sync
+
+# 또는 pip 사용
 python -m venv .venv
 source .venv/bin/activate
-
-# 개발 모드 설치 (ko-stt 커맨드 등록)
 pip install -e .
 ```
 
