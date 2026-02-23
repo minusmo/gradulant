@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "ko-whisper-cli"
@@ -22,3 +22,4 @@ ko-stt-gui = "ko_whisper_cli.gui:main"
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["ko_whisper_cli*"]
+
