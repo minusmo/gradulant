@@ -32,3 +32,35 @@ python -m venv .venv && source .venv/bin/activate
 pip install -e .
 ko-stt meeting.m4a
 ```
+
+---
+
+### 2026-02-23 — Press-to-Record GUI (ko-stt-gui)
+
+Added a tkinter-based GUI that lets the user hold a button to record and auto-transcribes on release.
+
+**Branch:** `claude/korean-stt-cli-KMolq`
+
+**What was created / changed:**
+
+- `ko_whisper_cli/gui.py` — `RecorderApp(tk.Tk)` GUI with:
+  - Hold-to-record button (press → record via `sounddevice`, release → transcribe)
+  - Audio captured at 16 kHz mono float32, saved to a temp WAV via `scipy.io.wavfile`
+  - Transcription runs on a daemon thread to keep the UI responsive
+  - Scrollable result text area with Copy / Clear actions
+  - Dark-themed colour palette
+- `pyproject.toml` — added `sounddevice`, `numpy`, `scipy` dependencies; registered `ko-stt-gui` console script entry point
+
+**Key design decisions:**
+
+- `tkinter` chosen (stdlib) to avoid heavy GUI framework dependencies
+- `sounddevice.InputStream` with a callback accumulates frames while the button is held
+- Temp WAV is deleted after transcription succeeds or fails (finally block)
+- All defaults reuse existing `config.py` constants — no new config surface
+
+**Run the GUI:**
+
+```bash
+pip install -e .
+ko-stt-gui
+```

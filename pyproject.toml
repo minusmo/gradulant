@@ -10,10 +10,14 @@ requires-python = ">=3.10"
 dependencies = [
   "faster-whisper",
   "click",
+  "sounddevice",
+  "numpy",
+  "scipy",
 ]
 
 [project.scripts]
 ko-stt = "ko_whisper_cli.cli:main"
+ko-stt-gui = "ko_whisper_cli.gui:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
